@@ -5,6 +5,9 @@ if [ "${START_XVFB}" = true ] ; then
 
   rm -f /tmp/.X*lock
 
+  # Needed to change/preserve gtk3 settings
+  export $(dbus-launch --sh-syntax --exit-with-session)
+
   # Command reference
   # http://manpages.ubuntu.com/manpages/focal/man1/xvfb-run.1.html
   # http://manpages.ubuntu.com/manpages/focal/man1/Xvfb.1.html
@@ -13,9 +16,6 @@ if [ "${START_XVFB}" = true ] ; then
     --listen-tcp \
     --server-args="-screen 0 ${GEOMETRY} -fbdir /var/tmp -dpi ${SCREEN_DPI} -listen tcp -noreset -ac +extension RANDR" \
     /usr/bin/fluxbox -display ${DISPLAY}
-  
-  # Needed to change/preserve gtk3 settings
-  export $(dbus-launch --sh-syntax --exit-with-session)
    
 fi
 else
