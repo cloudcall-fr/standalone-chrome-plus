@@ -6,7 +6,7 @@ if [ "${START_XVFB}" = true ] ; then
   rm -f /tmp/.X*lock
 
   # Needed to change/preserve gtk3 settings
-  export $(dbus-launch --sh-syntax --exit-with-session)
+  eval $(dbus-launch --sh-syntax --exit-with-session)
 
   # Command reference
   # http://manpages.ubuntu.com/manpages/focal/man1/xvfb-run.1.html
