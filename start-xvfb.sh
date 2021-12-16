@@ -15,7 +15,7 @@ if [ "${START_XVFB}" = true ] ; then
     /usr/bin/fluxbox -display ${DISPLAY}
   
   # Needed to change/preserve gtk3 settings
-  eval $(dbus-launch --sh-syntax --exit-with-session)
+  export $(dbus-launch --sh-syntax --exit-with-session)
    
 fi
 else
