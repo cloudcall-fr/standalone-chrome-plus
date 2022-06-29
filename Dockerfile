@@ -1,4 +1,4 @@
-FROM selenium/standalone-chrome:4.1
+FROM selenium/standalone-chrome:4.3
 
 USER root
 
